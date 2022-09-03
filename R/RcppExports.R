@@ -9,11 +9,35 @@ cpp_barysinkhorn14 <- function(listdXY, marginals, weights, p, lambda, maxiter, 
     .Call('_T4transport_cpp_barysinkhorn14', PACKAGE = 'T4transport', listdXY, marginals, weights, p, lambda, maxiter, abstol, printer, initvec)
 }
 
+cpp_barybregman15 <- function(listdXY, marginals, weights, p, lambda, maxiter, abstol, printer, initvec) {
+    .Call('_T4transport_cpp_barybregman15', PACKAGE = 'T4transport', listdXY, marginals, weights, p, lambda, maxiter, abstol, printer, initvec)
+}
+
 cpp_sinkhorn13 <- function(a, b, dab, lambda, p, maxiter, abstol) {
     .Call('_T4transport_cpp_sinkhorn13', PACKAGE = 'T4transport', a, b, dab, lambda, p, maxiter, abstol)
 }
 
-image_barysinkhorn14 <- function(dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread) {
-    .Call('_T4transport_image_barysinkhorn14', PACKAGE = 'T4transport', dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread)
+cpp_ipot20 <- function(a, b, dab, lambda, p, maxiter, abstol, L) {
+    .Call('_T4transport_cpp_ipot20', PACKAGE = 'T4transport', a, b, dab, lambda, p, maxiter, abstol, L)
+}
+
+gauss_weiszfeld <- function(X, weights, abstol, maxiter) {
+    .Call('_T4transport_gauss_weiszfeld', PACKAGE = 'T4transport', X, weights, abstol, maxiter)
+}
+
+gauss_spdbary16A <- function(array3d, weight, abstol, maxiter) {
+    .Call('_T4transport_gauss_spdbary16A', PACKAGE = 'T4transport', array3d, weight, abstol, maxiter)
+}
+
+gauss_spdmed22Y <- function(array3d, weight, abstol, maxiter) {
+    .Call('_T4transport_gauss_spdmed22Y', PACKAGE = 'T4transport', array3d, weight, abstol, maxiter)
+}
+
+routine_bary14C <- function(dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread) {
+    .Call('_T4transport_routine_bary14C', PACKAGE = 'T4transport', dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread)
+}
+
+routine_bary15B <- function(dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread) {
+    .Call('_T4transport_routine_bary15B', PACKAGE = 'T4transport', dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread)
 }
 

@@ -6,8 +6,9 @@
 #  (5) valid_multiple_marginal : check the marginal's setting
 #  (6) valid_multiple_weight   : weight of each measures
 #  (7) valid_multiple_distance : distance between support and measure
-#  (8) check_images            : for image barycenter
-
+#  (8) check_images            : for barycenter of images
+#  (9) check_hists             : for barycenter of histograms
+#  (10) valid_single_marginal  : check single marginal 
 
 
 # (1) valid_weight --------------------------------------------------------
@@ -140,6 +141,7 @@ valid_multiple_weight <- function(weight, K, fname){
   }
 }
 
+
 # (7) valid_multiple_distance ---------------------------------------------
 #' @keywords internal
 #' @noRd
@@ -188,4 +190,85 @@ check_images <- function(images, fname){
     stop(paste0("* ",fname," : all image matrices should have same number of columns."))
   }
   return(TRUE)
+}
+
+# (9) check_hists ---------------------------------------------------------
+#' @keywords internal
+#' @noRd
+check_hists <- function(hists, fname){
+  dname = paste0("'",deparse(substitute(hists)),"'")
+  if (!is.list(hists)){
+    stop(paste0("* ",fname," : ",dname," should be a list.")) 
+  }
+  N = length(hists)
+  for (n in 1:N){
+    if (!inherits(hists[[n]], "histogram")){
+      remainder = (n%%10)
+      if (remainder==1){
+        stop(paste0("* ",fname," : ",n,"st object in ",dname," is not a histogram object."))  
+      } else if (remainder==2){
+        stop(paste0("* ",fname," : ",n,"nd object in ",dname," is not a histogram object."))  
+      } else if (remainder==3){
+        stop(paste0("* ",fname," : ",n,"rd object in ",dname," is not a histogram object."))  
+      } else {
+        stop(paste0("* ",fname," : ",n,"th object in ",dname," is not a histogram object."))  
+      }
+    }
+  }
+  
+  mybreaks  = hists[[1]]$breaks
+  mydensity = list()
+  for (n in 1:N){
+    mydensity[[n]] = hists[[n]]$density
+    if (n > 1){
+      if (!(length(mybreaks)==length(hists[[n]]$breaks))){
+        remainder = (n%%10)
+        if (remainder==1){
+          stop(paste0("* ",fname," : ",n,"st histogram has different breaks."))
+        } else if (remainder==2){
+          stop(paste0("* ",fname," : ",n,"nd histogram has different breaks."))
+        } else if (remainder==3){
+          stop(paste0("* ",fname," : ",n,"rd histogram has different breaks."))
+        } else {
+          stop(paste0("* ",fname," : ",n,"th histogram has different breaks."))
+        }
+      } else {
+        if (sqrt(base::sum((mybreaks-hists[[n]]$breaks)^2)) > (100*.Machine$double.eps)){
+          remainder = (n%%10)
+          if (remainder==1){
+            stop(paste0("* ",fname," : ",n,"st histogram has different breaks."))
+          } else if (remainder==2){
+            stop(paste0("* ",fname," : ",n,"nd histogram has different breaks."))
+          } else if (remainder==3){
+            stop(paste0("* ",fname," : ",n,"rd histogram has different breaks."))
+          } else {
+            stop(paste0("* ",fname," : ",n,"th histogram has different breaks."))
+          }
+        }
+      }
+    }
+  }
+  
+  output = list()
+  output$midpts  = hists[[1]]$mids
+  output$density = mydensity
+  return(output)
+}
+
+
+
+# (10) valid_single_marginal ----------------------------------------------
+#' @keywords internal
+#' @noRd
+valid_single_marginal <- function(mvec, M, fname){
+  dname = paste0("'",deparse(substitute(mvec)),"'")
+  if ((length(mvec)==0)&&is.null(mvec)){
+    return(rep(1/M, M))
+  } else {
+    mvec = as.vector(mvec)
+    if ((length(mvec)!=M)||(any(mvec<0))){
+      stop(paste0("* ",fname," : ",dname," should be a nonnegative vector of length ",M,"."))
+    }
+    return(mvec/base::sum(mvec))
+  }
 }

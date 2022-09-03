@@ -3,7 +3,7 @@
 \name{wasserstein}
 \alias{wasserstein}
 \alias{wassersteinD}
-\title{Wasserstein Distance between Empirical Measures}
+\title{Computing Wasserstein Distance between Empirical Measures}
 \usage{
 wasserstein(X, Y, p = 2, wx = NULL, wy = NULL)
 
@@ -29,25 +29,25 @@ a named list containing\describe{
 }
 }
 \description{
-Given two empirical measures \eqn{\mu, \nu} consisting of \eqn{M} and \eqn{N} observations on \eqn{\mathcal{X}}, \eqn{p}-Wasserstein distance for \eqn{p\geq 1} between two empirical measures 
-is defined as 
+Given two empirical measures \eqn{\mu, \nu} consisting of \eqn{M} and \eqn{N} observations on \eqn{\mathcal{X}}, \eqn{p}-Wasserstein distance for \eqn{p\geq 1} between two empirical measures
+is defined as
 \deqn{\mathcal{W}_p (\mu, \nu) = \left( \inf_{\gamma \in \Gamma(\mu, \nu)} \int_{\mathcal{X}\times \mathcal{X}} d(x,y)^p d \gamma(x,y) \right)^{1/p}}
-where \eqn{\Gamma(\mu, \nu)} denotes the collection of all measures/couplings on \eqn{\mathcal{X}\times \mathcal{X}} 
-whose marginals are \eqn{\mu} and \eqn{\nu} on the first and second factors, respectively. Please see the section 
+where \eqn{\Gamma(\mu, \nu)} denotes the collection of all measures/couplings on \eqn{\mathcal{X}\times \mathcal{X}}
+whose marginals are \eqn{\mu} and \eqn{\nu} on the first and second factors, respectively. Please see the section
 for detailed description on the usage of the function.
 }
 \section{Usage \code{wasserstein()} function}{
 
 We assume empirical measures are defined on the Euclidean space \eqn{\mathcal{X}=\mathbf{R}^d},
-\deqn{\mu = \sum_{m=1}^M \mu_m \delta_{X_m}\quad\textrm{and}\quad \nu = \sum_{n=1}^N \nu_n \delta_{Y_n}} 
-and the distance metric used here is standard Euclidean norm \eqn{d(x,y) = \|x-y\|}. Here, the 
-marginals \eqn{(\mu_1,\mu_2,\ldots,\mu_M)} and \eqn{(\nu_1,\nu_2,\ldots,\nu_N)} correspond to 
+\deqn{\mu = \sum_{m=1}^M \mu_m \delta_{X_m}\quad\textrm{and}\quad \nu = \sum_{n=1}^N \nu_n \delta_{Y_n}}
+and the distance metric used here is standard Euclidean norm \eqn{d(x,y) = \|x-y\|}. Here, the
+marginals \eqn{(\mu_1,\mu_2,\ldots,\mu_M)} and \eqn{(\nu_1,\nu_2,\ldots,\nu_N)} correspond to
 \code{wx} and \code{wy}, respectively.
 }
 
 \section{Using \code{wassersteinD()} function}{
 
-If other distance measures or underlying spaces are one's interests, we have an option for users to provide 
+If other distance measures or underlying spaces are one's interests, we have an option for users to provide
 a distance matrix \code{D} rather than vectors, where
 \deqn{D := D_{M\times N} = d(X_m, Y_n)}
 for flexible modeling.
@@ -88,7 +88,7 @@ par(opar)
 #  For two Gaussians with same covariance, their 
 #  2-Wasserstein distance is known so let's compare !
 
-niter = 5000          # number of iterations
+niter = 1000          # number of iterations
 vdist = rep(0,niter)
 for (i in 1:niter){
   mm = sample(30:50, 1)

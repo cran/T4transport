@@ -1,36 +1,31 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Tools for Optimal Transport <a href='https://kyoustat.com/T4transport/'><img src='man/figures/logo.png' align="right" height="150" /></a>
+# T4transport <a href='https://www.kisungyou.com/T4transport/'><img src='man/figures/logo.png' align="right" width="130" /></a>
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.com/kyoustat/T4transport.svg?branch=master)](https://travis-ci.com/kyoustat/T4transport)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/T4transport)](https://CRAN.R-project.org/package=T4transport)
 <!-- badges: end -->
 
-**T4transport** is an **R** package designed as a computational toolkit
-for well-known algorithms in the field of optimal transport.
+We introduce **T4transport**, an **R** package designed as a
+computational toolkit for a collection of algorithms in the field of
+optimal transport.
 
 ### Installation
 
-  - Option 1 : **released** version from
+-   Option 1 : **released** version from
     [CRAN](https://CRAN.R-project.org).
-
-<!-- end list -->
 
 ``` r
 install.packages("T4transport")
 ```
 
-  - Option 2 : **development** version from
+-   Option 2 : **development** version from
     [GitHub](https://github.com/).
 
-<!-- end list -->
-
 ``` r
-if (!require("devtools")) {
-  install.packages("devtools")
-}
-devtools::install_github("kyoustat/T4transport")
+# install.packages("devtools")
+devtools::install_github("kisungyou/T4transport")
 ```

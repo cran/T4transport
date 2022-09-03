@@ -6,8 +6,10 @@
 #' @name T4transport
 #' @aliases T4transport-package
 #' @import Rdpack
+#' @import CVXR
 #' @importFrom lpSolve lp
-#' @importFrom stats rnorm median
+#' @importFrom CVXR Variable Minimize matrix_trace Problem solve
+#' @importFrom stats rnorm median dnorm quantile
 #' @importFrom utils packageVersion
 #' @importFrom Rcpp evalCpp
 #' @useDynLib T4transport
