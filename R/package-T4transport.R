@@ -1,10 +1,9 @@
-#' Tools for Computational Optimal Transport
-#' 
+#' Computational Optimal Transport in R
 #' 
 #' @noRd
-#' @docType package
 #' @name T4transport
 #' @aliases T4transport-package
+#' @importFrom Rdpack reprompt
 #' @import Rdpack
 #' @import CVXR
 #' @importFrom lpSolve lp
@@ -12,8 +11,8 @@
 #' @importFrom stats rnorm median dnorm quantile
 #' @importFrom utils packageVersion
 #' @importFrom Rcpp evalCpp
-#' @useDynLib T4transport
-NULL
+#' @useDynLib T4transport, .registration = TRUE
+"_PACKAGE"
 # pack <- "T4transport"
 # path <- find.package(pack)
 # system(paste(shQuote(file.path(R.home("bin"), "R")),

@@ -1,4 +1,4 @@
-#' Wasserstein Median of Gaussian Distributions in \eqn{\mathbf{R}}
+#' Wasserstein Median of Gaussian Distributions in \eqn{\mathbb{R}}
 #' 
 #' Given a collection of Gaussian distributions \eqn{\mathcal{N}(\mu_i, \sigma_i^2)} for \eqn{i=1,\ldots,n}, 
 #' compute the Wasserstein median.
@@ -61,6 +61,10 @@
 #' 
 #' @seealso [T4transport::gaussmedpd()] for multivariate case.
 #' @concept gaussian
+#' 
+#' @references 
+#' \insertRef{you_2024_WassersteinMedianProbability}{T4transport}
+#' 
 #' @export
 gaussmed1d <- function(means, vars, weights=NULL, ...){
   # --------------------------------------------------------------------------

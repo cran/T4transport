@@ -2,7 +2,7 @@
 % Please edit documentation in R/gauss_median1d.R
 \name{gaussmed1d}
 \alias{gaussmed1d}
-\title{Wasserstein Median of Gaussian Distributions in \eqn{\mathbf{R}}}
+\title{Wasserstein Median of Gaussian Distributions in \eqn{\mathbb{R}}}
 \usage{
 gaussmed1d(means, vars, weights = NULL, ...)
 }
@@ -25,7 +25,7 @@ a named list containing \describe{
 }
 }
 \description{
-Given a collection of Gaussian distributions \eqn{\mathcal{N}(\mu_i, \sigma_i^2)} for \eqn{i=1,\ldots,n},
+Given a collection of Gaussian distributions \eqn{\mathcal{N}(\mu_i, \sigma_i^2)} for \eqn{i=1,\ldots,n}, 
 compute the Wasserstein median.
 }
 \examples{
@@ -72,7 +72,10 @@ par(opar)
 }
 
 }
+\references{
+\insertRef{you_2024_WassersteinMedianProbability}{T4transport}
+}
 \seealso{
-\code{\link[=gaussmedpd]{gaussmedpd()}} for multivariate case.
+[T4transport::gaussmedpd()] for multivariate case.
 }
 \concept{gaussian}

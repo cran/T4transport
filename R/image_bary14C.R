@@ -22,7 +22,7 @@
 #' @return an \eqn{(m\times n)} matrix of the barycentric image.
 #' 
 #' @references 
-#' \insertRef{cuturi_fast_2014}{T4transport}
+#' \insertRef{cuturi_2014_FastComputationWasserstein}{T4transport}
 #' 
 #' @examples 
 #' \dontrun{
@@ -59,7 +59,7 @@
 #' par(opar)
 #' }
 #' 
-#' @seealso \code{\link{bary14C}}
+#' @seealso \code{\link{fbary14C}}
 #' 
 #' @concept image
 #' @export

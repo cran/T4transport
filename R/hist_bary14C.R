@@ -1,4 +1,4 @@
-#' Barycenter of Histograms by Cuturi & Doucet (2014)
+#' Barycenter of Histograms by Cuturi and Doucet (2014)
 #' 
 #' Given multiple histograms represented as \code{"histogram"} S3 objects, compute 
 #' Wasserstein barycenter. We need one requirement that all histograms in an 
@@ -55,9 +55,9 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{cuturi_fast_2014}{T4transport}
+#' \insertRef{cuturi_2014_FastComputationWasserstein}{T4transport}
 #' 
-#' @seealso \code{\link{bary14C}}
+#' @seealso \code{\link{fbary14C}}
 #' 
 #' @concept histogram
 #' @export
