@@ -5,8 +5,16 @@ compute_pdist2 <- function(X, Y) {
     .Call(`_T4transport_compute_pdist2`, X, Y)
 }
 
+cpp_mvrnorm <- function(n, mu, cov) {
+    .Call(`_T4transport_cpp_mvrnorm`, n, mu, cov)
+}
+
 cpp_ipot20 <- function(a, b, dab, lambda, p, maxiter, abstol, L) {
     .Call(`_T4transport_cpp_ipot20`, a, b, dab, lambda, p, maxiter, abstol, L)
+}
+
+cpp_pwdist <- function(X, p, Y, q, maxiter, abstol) {
+    .Call(`_T4transport_cpp_pwdist`, X, p, Y, q, maxiter, abstol)
 }
 
 cpp_sinkhorn13 <- function(a, b, dab, lambda, p, maxiter, abstol) {
@@ -19,6 +27,22 @@ cpp_barybregman15 <- function(listdXY, marginals, weights, p, lambda, maxiter, a
 
 cpp_fixed_sinkhorn14 <- function(listdXY, marginals, weights, p, lambda, maxiter, abstol, printer, initvec) {
     .Call(`_T4transport_cpp_fixed_sinkhorn14`, listdXY, marginals, weights, p, lambda, maxiter, abstol, printer, initvec)
+}
+
+cpp_free_bary_gradient <- function(measures, marginals, weights, num_support, maxiter, abstol) {
+    .Call(`_T4transport_cpp_free_bary_gradient`, measures, marginals, weights, num_support, maxiter, abstol)
+}
+
+cpp_single_barycenter <- function(measures, marginals, weights, init_support) {
+    .Call(`_T4transport_cpp_single_barycenter`, measures, marginals, weights, init_support)
+}
+
+cpp_free_bary_gradient_init <- function(measures, marginals, weights, maxiter, abstol, init_support) {
+    .Call(`_T4transport_cpp_free_bary_gradient_init`, measures, marginals, weights, maxiter, abstol, init_support)
+}
+
+cpp_free_median_PF <- function(measures, marginals, weights, maxiter, abstol, init_support) {
+    .Call(`_T4transport_cpp_free_median_PF`, measures, marginals, weights, maxiter, abstol, init_support)
 }
 
 gauss_weiszfeld <- function(X, weights, abstol, maxiter) {
@@ -43,5 +67,21 @@ routine_bary14C <- function(dxy, marginals, weights, p, lambda, maxiter, abstol,
 
 routine_bary15B <- function(dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread) {
     .Call(`_T4transport_routine_bary15B`, dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread)
+}
+
+util_mvrnorm <- function(par_mean, par_cov, num_samples) {
+    .Call(`_T4transport_util_mvrnorm`, par_mean, par_cov, num_samples)
+}
+
+util_pairwise_sqdist <- function(X, Y) {
+    .Call(`_T4transport_util_pairwise_sqdist`, X, Y)
+}
+
+util_pairwise_dist <- function(X) {
+    .Call(`_T4transport_util_pairwise_dist`, X)
+}
+
+util_plan_emd_C <- function(a, b, C) {
+    .Call(`_T4transport_util_plan_emd_C`, a, b, C)
 }
 
