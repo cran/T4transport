@@ -2,14 +2,14 @@
 % Please edit documentation in R/free_bary_GradientDescent.R
 \name{rbaryGD}
 \alias{rbaryGD}
-\title{Free-Support Barycenter by Riemannian gradient descent}
+\title{Free-Support Barycenter by Riemannian Gradient Descent}
 \usage{
 rbaryGD(atoms, marginals = NULL, weights = NULL, num_support = 100, ...)
 }
 \arguments{
 \item{atoms}{a length-\eqn{K} list where each element is an \eqn{(N_k \times P)} matrix of atoms.}
 
-\item{marginals}{marginal distributions for empirical measures; if \code{NULL} (default), uniform weights are set for all measures. Otherwise, it should be a length-\eqn{K} list where each element is a length-\eqn{N_i} vector of nonnegative weights that sum to 1.}
+\item{marginals}{marginal distributions for empirical measures; if \code{NULL} (default), uniform weights are set for all measures. Otherwise, it should be a length-\eqn{K} list where each element is a length-\eqn{N_k} vector of nonnegative weights that sum to 1.}
 
 \item{weights}{weights for each individual measure; if \code{NULL} (default), each measure is considered equally. Otherwise, it should be a length-\eqn{K} vector.}
 

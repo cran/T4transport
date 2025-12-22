@@ -61,12 +61,24 @@ gauss_median_centered <- function(array3d, weight, abstol, maxiter) {
     .Call(`_T4transport_gauss_median_centered`, array3d, weight, abstol, maxiter)
 }
 
+cpp_gwdist <- function(Dx, Dy, p, q, maxiter, abstol, method) {
+    .Call(`_T4transport_cpp_gwdist`, Dx, Dy, p, q, maxiter, abstol, method)
+}
+
+cpp_gwbary <- function(Ds, marginals, weights, init_D, maxiter, abstol, method) {
+    .Call(`_T4transport_cpp_gwbary`, Ds, marginals, weights, init_D, maxiter, abstol, method)
+}
+
 routine_bary14C <- function(dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread) {
     .Call(`_T4transport_routine_bary14C`, dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread)
 }
 
 routine_bary15B <- function(dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread) {
     .Call(`_T4transport_routine_bary15B`, dxy, marginals, weights, p, lambda, maxiter, abstol, printer, initvec, nthread)
+}
+
+util_plan_entropic <- function(a, b, C, lambda, maxiter, abstol) {
+    .Call(`_T4transport_util_plan_entropic`, a, b, C, lambda, maxiter, abstol)
 }
 
 util_mvrnorm <- function(par_mean, par_cov, num_samples) {
@@ -79,6 +91,10 @@ util_pairwise_sqdist <- function(X, Y) {
 
 util_pairwise_dist <- function(X) {
     .Call(`_T4transport_util_pairwise_dist`, X)
+}
+
+util_cmds <- function(D, k) {
+    .Call(`_T4transport_util_cmds`, D, k)
 }
 
 util_plan_emd_C <- function(a, b, C) {
