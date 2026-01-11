@@ -1,3 +1,11 @@
+# T4transport 0.1.8
+
+* Changed `hdist()` to `histdist()` for modality-specific computation.
+* `imagebary()` added for unregularized Wasserstein barycenter of images.
+* `imagedist()` added for the Wasserstein distance between two images.
+* `imageinterp()` added for Wasserstein interpolation between two images.
+* `imagemed()` added for unregularized Wasserstein median of images.
+
 # T4transport 0.1.7
 
 * Removed dependence on CVXR package.

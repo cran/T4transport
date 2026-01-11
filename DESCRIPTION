@@ -1,7 +1,7 @@
 Package: T4transport
 Type: Package
 Title: Tools for Computational Optimal Transport
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: person("Kisung", "You", role = c("aut", "cre"),email = "kisung.you@outlook.com",comment=c(ORCID="0000-0002-8584-459X"))
 Description: Transport theory has seen much success in many fields of statistics and machine learning. We provide a variety of algorithms to compute Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019) <doi:10.1561/2200000073> for the general exposition to the study of computational optimal transport.
 License: MIT + file LICENSE
@@ -13,10 +13,11 @@ RoxygenNote: 7.3.3
 RdMacros: Rdpack
 Depends: R (>= 2.10)
 Suggests: knitr, rmarkdown, ggplot2, mlbench
+SystemRequirements: C++20
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2025-12-22 14:38:12 UTC; kyou
+Packaged: 2026-01-11 03:06:29 UTC; kyou
 Author: Kisung You [aut, cre] (ORCID: <https://orcid.org/0000-0002-8584-459X>)
 Maintainer: Kisung You <kisung.you@outlook.com>
 Repository: CRAN
-Date/Publication: 2025-12-22 15:00:02 UTC
+Date/Publication: 2026-01-11 03:30:02 UTC

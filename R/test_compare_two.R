@@ -5,33 +5,30 @@
 #' @keywords internal
 #' @noRd
 compare_two <- function(X, Y, useR = TRUE){
-  nx = nrow(X); wx = rep(1/nx, nx)
-  ny = nrow(Y); wy = rep(1/ny, ny)
-  D2 = util_pairwise_sqdist(X, Y)
-  
-  # compute the plans
-  if (useR){
-    return(aux_emd(wx, wy, D2))
-  } else {
-    return(util_plan_emd_C(wx, wy, D2))
-  }
+  # nx = nrow(X); wx = rep(1/nx, nx)
+  # ny = nrow(Y); wy = rep(1/ny, ny)
+  # D2 = util_pairwise_sqdist(X, Y)
+  # 
+  # # compute the plans
+  # output1 = util_plan_emd_C(wx, wy, D2)
+  # output2 = util_plan_emd_BSP(wx, wy, D2, nb_plans=20)
+  # 
+  # result1 = list(plan=output1, distance=sqrt(sum(output1*D2)))
+  # result2 = list(plan=output2, distance=sqrt(sum(output2*D2)))
+  # results = list(exact=result1, 
+  #                approx=result2)
+  # return(results)
 }
-
 # m = 300
 # n = 150
 # X = matrix(rnorm(m*2, mean=-1),ncol=2) # m obs. for X
 # Y = matrix(rnorm(n*2, mean=+1),ncol=2) # n obs. for Y
 # 
-# plan_R = compare_two(X, Y, useR=TRUE)
-# plan_C = compare_two(X, Y, useR=FALSE)
+# run_two = compare_two(X, Y)
 # 
 # par(mfrow=c(1,2))
-# image(plan_R, main="lpSolve")
-# image(plan_C, main="Bonneel")
-# norm(plan_R - plan_C, "F")
+# image(run_two$exact$plan, main="plan-exact")
+# image(run_two$approx$plan, main="plan-approx")
 # 
-# microbenchmark::microbenchmark(
-#   plan_R = compare_two(X, Y, useR=TRUE),
-#   plan_C = compare_two(X, Y, useR=FALSE),
-#   times=5L
-# )
+# run_two$approx$distance
+# run_two$exact$distance
